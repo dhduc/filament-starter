@@ -1,9 +1,21 @@
 ports:
-    - name: Web App
-      description: The main application web server
-      port: 8000
-      # do not notify once the port is detected
-      onOpen: ignore
+  - port: 3005
+    onOpen: ignore
+  - port: 3306
+    onOpen: ignore
+  - port: 8000
+    onOpen: ignore
+  - port: 8001
+    onOpen: ignore
+  - port: 8002
+    onOpen: ignore
+  - port: 9000
+    onOpen: ignore
+    visibility: private
+  - port: 9009
+    onOpen: ignore
+    visibility: private
+    
 tasks:
   - name: Setup environment and launch
     init: |
@@ -20,14 +32,4 @@ tasks:
       echo $(gp url 8000)
       php artisan serve
       
-# Configure vscode
-vscode:
-  extensions:
-    - bmewburn.vscode-intelephense-client
-    - ms-azuretools.vscode-docker
-    - ecmel.vscode-html-css
-    - MehediDracula.php-namespace-resolver
-    - Equinusocio.vsc-community-material-theme
-    - EditorConfig.EditorConfig
-    - streetsidesoftware.code-spell-checker
-    
+
